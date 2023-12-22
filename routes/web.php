@@ -18,10 +18,12 @@ use App\Http\Controllers\ShopifyController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['verify.shopify'])->name('home');
+
+Route::get('/products',[ShopifyController::class,'getProducts'])->middleware(['verify.shopify'])->name('product');
 
 //collection route
-Route::get('/collections',[CollectionsController::class,'collections']);
+//Route::get('/collections',[CollectionsController::class,'collections']);
 
 //shop route
-Route::get('/shop',[ShopController::class,'shopDetails']);
+//Route::get('/shop',[ShopController::class,'shopDetails']);
