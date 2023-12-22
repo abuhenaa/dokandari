@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CollectionsController;
+use App\Http\Controllers\GraphQlController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ShopifyController;
 
@@ -27,3 +28,5 @@ Route::get('/products',[ShopifyController::class,'getProducts'])->middleware(['v
 
 //shop route
 //Route::get('/shop',[ShopController::class,'shopDetails']);
+
+Route::get('/gql/{name}',[GraphQlController::class,'getRepo']);
